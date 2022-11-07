@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   moments: Moment[] = [];
   baseApiUrl = environment.baseApiUrl
 
-  //TODO SEARCH
+  faSearch = faSearch;
+  searchTerm: string = "";
 
   constructor(private momentService: MomentService) { }
 
@@ -32,4 +33,16 @@ export class HomeComponent implements OnInit {
       this.moments = data;
     });
   }
+
+  search(e: Event): void { //busca pelo input
+    const target = e.target as HTMLInputElement;
+    const value = target.value; //valor do input a ser pego 
+
+    this.moments = this.allMoments.filter(moment => {
+      return moment.title.toLowerCase().includes(value)
+    });
+  }
+
+
+
 }
