@@ -22,6 +22,7 @@ export class NewMomentComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
   }
 
  async createHandler(moment: Moment) { // pega o que foi emitido do moment 
@@ -35,10 +36,9 @@ export class NewMomentComponent implements OnInit {
 
    await this.momentService.createMoment(formData).subscribe();
 
-   this.messagesService.add('momente adiiconado com sucesso');
+   this.messagesService.add('momente adiconado com sucesso');
 
    this.router.navigate(['/'])
-
 
 
   }
